@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blackjack</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/foundation.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="row">
+        <div class="row controls" v-if="!gameIsRunning">
+          <div class="small-12 columns">
+            <button @click="startGame">DEAL</button>
+          </div>
+        </div>
+        <div class="row controls" v-else>
+          <div class="small-12 columns">
+            <button @click="playerStays">STAY</button>
+            <button @click="playerHits">HIT</button>
+          </div>
+        </div>
+        <div class="small-6 columns">
+          <h1 class="text-center">YOU</h1>
+          <div class="data">
+            <div class="data text-center">Score: {{ playerScore }}</div>
+          </div>
+        </div>
+        <div class="small-6 columns">
+          <h1 class="text-center">DEALER</h1>
+          <div class="data">
+            <div class="data text-center">Score: {{ dealerScore }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row log flex-container" v-if="playerHand.length > 0">
+        <div class="small-12 columns">
+          <h3>Your Hand</h3>
+          <ul>
+            <li v-for="card in playerHand">
+              {{ card.value }} of {{ card.suite }}
+            </li>
+          </ul>
+        </div>
+        <div class="small-12 columns">
+          <h3>Dealer's Hand</h3>
+          <ul>
+            <li v-for="card in dealerHand">
+              {{ card.value }} of {{ card.suite }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <section>
+        <div class="row controls" v-if="playerWonGame">
+          <div class="small-12 columns">
+            <h1>YOU WIN!</h1>
+          </div>
+        </div>
+
+        <div class="row controls" v-if="playerLostGame">
+          <div class="small-12 columns">
+            <h1>YOU LOSE!</h1>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

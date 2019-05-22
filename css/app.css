@@ -1,0 +1,37 @@
+.text-center {
+    text-align: center;
+}
+
+.data {
+    width: 80%;
+    height: 40px;
+    margin: auto;
+}
+
+.controls,
+.log {
+    margin-top: 30px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.log ul {
+    list-style: none;
+    font-weight: bold;
+}
+
+.log ul li {
+    margin: 5px;
+}
+
+button {
+    font-size: 20px;
+    background-color: #eee;
+    padding: 10px;
+    margin: 10px;
+}
+
+.flex-container {
+    display: flex;
+}
